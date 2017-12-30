@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.example.dofcalculator.R;
 import com.example.dofcalculator.adapter.SensorSizeAdapter;
-import com.example.dofcalculator.util.SensorSizeEnum;
+import com.example.dofcalculator.model.SensorSizeEnum;
 
 import java.util.List;
 

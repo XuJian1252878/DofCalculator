@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 
 import com.example.dofcalculator.R;
-import com.example.dofcalculator.util.SensorSizeEnum;
 
 import static com.example.dofcalculator.util.UtilManager.typedArray2DoubleList;
 

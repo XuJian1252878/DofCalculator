@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.example.dofcalculator.R;
 import com.example.dofcalculator.constant.ApplicationConstants;
 import com.example.dofcalculator.model.DepthOfFieldCalculator;
-import com.example.dofcalculator.util.SensorSizeEnum;
+import com.example.dofcalculator.model.SensorSizeEnum;
 import com.example.dofcalculator.util.UtilManager;
 import com.example.dofcalculator.view.DepthOfFieldView;
 import com.example.dofcalculator.view.Wheel;

@@ -14,7 +14,7 @@ import com.example.dofcalculator.activity.MainActivity;
 import com.example.dofcalculator.activity.SensorSizeActivity;
 import com.example.dofcalculator.constant.ApplicationConstants;
 import com.example.dofcalculator.model.DepthOfFieldCalculator;
-import com.example.dofcalculator.util.SensorSizeEnum;
+import com.example.dofcalculator.model.SensorSizeEnum;
 
 import java.util.List;
 

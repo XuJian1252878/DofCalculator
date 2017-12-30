@@ -1,4 +1,4 @@
-package com.example.dofcalculator.util;
+package com.example.dofcalculator.model;
 
 import com.example.dofcalculator.R;
 

@@ -1,4 +1,4 @@
-package com.example.dofcalculator.util;
+package com.example.dofcalculator.model;
 
 /**
  * Created by xujian on 2017/12/30.

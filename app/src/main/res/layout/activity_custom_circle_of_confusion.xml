@@ -9,12 +9,14 @@
 
     <LinearLayout
         android:orientation="vertical"
+        android:layout_marginTop="15sp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/custom_circle_of_confusion_activity_text_size"
             android:text="@string/input_custom_circle_of_confusion_text_view_label"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +29,7 @@
             <EditText
                 android:id="@+id/custom_circle_of_confusion_edit_view"
                 android:layout_width="0dp"
+                android:textSize="@dimen/custom_circle_of_confusion_activity_text_size"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:inputType="numberDecimal" />
@@ -35,6 +38,7 @@
                 android:id="@+id/custom_circle_of_confusion_button"
                 android:layout_weight="1"
                 android:layout_width="0dp"
+                android:textSize="@dimen/custom_circle_of_confusion_activity_text_size"
                 android:layout_height="wrap_content"
                 android:text="@string/custom_circle_of_confusion_button_label" />
 
@@ -43,6 +47,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/custom_circle_of_confusion_activity_text_size"
             android:text="@string/circle_of_confusion_calculate_method_label" />
 
     </LinearLayout>

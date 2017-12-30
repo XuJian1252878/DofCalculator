@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.TypedArray;
 
 import com.example.dofcalculator.R;
+import com.example.dofcalculator.model.DistanceInfoEnum;
+import com.example.dofcalculator.model.UnitSystemEnum;
 
 import java.text.DecimalFormat;
 

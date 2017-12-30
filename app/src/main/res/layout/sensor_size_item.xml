@@ -7,6 +7,8 @@
     <TextView
         android:id="@+id/sensor_size_item_text_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sensor_size_item_text_size"
+        android:layout_margin="5sp"/>
 
 </LinearLayout>
