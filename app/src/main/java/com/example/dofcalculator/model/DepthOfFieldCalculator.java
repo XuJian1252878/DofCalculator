@@ -3,8 +3,8 @@ package com.example.dofcalculator.model;
 import android.content.Context;
 import android.content.res.TypedArray;
 
-import com.example.dofcalculator.constant.DofConstants;
 import com.example.dofcalculator.R;
+import com.example.dofcalculator.util.SensorSizeEnum;
 
 import static com.example.dofcalculator.util.UtilManager.typedArray2DoubleList;
 
@@ -12,7 +12,7 @@ import static com.example.dofcalculator.util.UtilManager.typedArray2DoubleList;
  * Created by xujian on 2017/12/28.
  */
 
-public class DepthOfFieldCalculator implements DofConstants {
+public class DepthOfFieldCalculator {
 
     private Double[] mDistanceList; // 像物距离列表
     private Double[] mApertureList; // 光圈大小列表
@@ -174,7 +174,7 @@ public class DepthOfFieldCalculator implements DofConstants {
             // 说明当前是自定义的容许弥散圆直径，那么直接返回自定义的容许弥散圆直径
             return mCurCustomCircleOfConfusion;
         }
-        return CIRCLE_OF_CONFUSION[mCircleOfConfusionIndex];
+        return SensorSizeEnum.getCircleOfConfusion(mCircleOfConfusionIndex);
     }
     public int getCircleOfConfusionIndex() {
         return mCircleOfConfusionIndex;

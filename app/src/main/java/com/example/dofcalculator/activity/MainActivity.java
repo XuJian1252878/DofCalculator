@@ -1,27 +1,20 @@
 package com.example.dofcalculator.activity;
 
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.dofcalculator.R;
 import com.example.dofcalculator.constant.ApplicationConstants;
 import com.example.dofcalculator.model.DepthOfFieldCalculator;
-import com.example.dofcalculator.model.SensorSize;
+import com.example.dofcalculator.util.SensorSizeEnum;
 import com.example.dofcalculator.util.UtilManager;
 import com.example.dofcalculator.view.DepthOfFieldView;
 import com.example.dofcalculator.view.Wheel;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -77,11 +70,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         // 获取sensor size的list
-        TypedArray sensorSizeTypedArray = getResources().obtainTypedArray(R.array.sensers_array);
-        List<SensorSize> sensorSizeList = UtilManager.typedAyyay2SensorSizeList(sensorSizeTypedArray);
+//        TypedArray sensorSizeTypedArray = getResources().obtainTypedArray(R.array.sensers_array);
+//        List<SensorSize> sensorSizeList = UtilManager.typedAyyay2SensorSizeList(sensorSizeTypedArray);
 
         // 设置初始的弥散圆直径 传感器名称
-        mSensorSizeTextView.setText(sensorSizeList.get(mDepthOfFieldCalculator.getCircleOfConfusionIndex()).getSensorSizeName());
+        mSensorSizeTextView.setText(SensorSizeEnum.getSensorSizeName(mDepthOfFieldCalculator.getCircleOfConfusionIndex()));
+//        mSensorSizeTextView.setText(sensorSizeList.get(mDepthOfFieldCalculator.getCircleOfConfusionIndex()).getSensorSizeName());
 
 //        // 传感器大小选择spinner
 //        mSensorSizeSpinner = findViewById(R.id.sensor_size_spinner);

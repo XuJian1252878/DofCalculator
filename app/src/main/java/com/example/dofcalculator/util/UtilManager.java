@@ -3,26 +3,22 @@ package com.example.dofcalculator.util;
 import android.content.Context;
 import android.content.res.TypedArray;
 
-import com.example.dofcalculator.constant.DofConstants;
 import com.example.dofcalculator.R;
-import com.example.dofcalculator.model.SensorSize;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by xujian on 2017/12/28.
  */
 
-public class UtilManager implements DofConstants {
+public class UtilManager {
 
     // 单例模式，程序中只有一个UnitManager实例
     private static UtilManager instance = new UtilManager();
 
     // 默认是使用公尺作为计量单位的
-    private static UNIT_SYSTEM mUnitType = UNIT_SYSTEM.METRIC;
-    public boolean setUnitSystem(UNIT_SYSTEM unitSystemType) {
+    private static UnitSystemEnum mUnitType = UnitSystemEnum.METRIC;
+    public boolean setUnitSystem(UnitSystemEnum unitSystemType) {
         mUnitType = unitSystemType;
         return true;
     }
@@ -31,17 +27,17 @@ public class UtilManager implements DofConstants {
         return instance;
     }
 
-    public float getDistanceUnitLength(DISTANCE_UNIT distanceUnit) {
+    public float getDistanceUnitLength(DistanceInfoEnum distanceInfoEnum) {
         // 返回枚举对象的序数
-        int ordinal = distanceUnit.ordinal();
+//        int ordinal = distanceUnit.ordinal();
         // 返回对应计量单位数组中对应的距离单位信息
-        return DISTANCE_UNIT_LENGTH[ordinal];
+        return (float)distanceInfoEnum.getUnitLength();
     }
 
-    public String getDistanceUnitName(Context context, DISTANCE_UNIT distanceUnit) {
+    public String getDistanceUnitName(Context context, DistanceInfoEnum distanceInfoEnum) {
         // 返回枚举对象的序数
-        int ordinal = distanceUnit.ordinal();
-        return context.getString(DISTANCE_UNIT_NAME[ordinal]);
+//        int ordinal = distanceUnit.ordinal();
+        return context.getString(distanceInfoEnum.getName());
     }
 
     // 显示相机以拍摄物体间的距离文字
@@ -113,15 +109,6 @@ public class UtilManager implements DofConstants {
             list[i] = (double)array.getFloat(i, 0.0f);
         }
         return list;
-    }
-
-    // 获取设置在values文件中的array信息（转化为String）
-    public static List<SensorSize> typedAyyay2SensorSizeList(TypedArray array) {
-        List<SensorSize> sensorSizeList = new ArrayList<>();
-        for (int i = 0; i < array.length(); i ++) {
-            sensorSizeList.add(new SensorSize(array.getString(i)));
-        }
-        return sensorSizeList;
     }
 
 }

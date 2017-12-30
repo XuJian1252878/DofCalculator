@@ -14,7 +14,7 @@ import com.example.dofcalculator.activity.MainActivity;
 import com.example.dofcalculator.activity.SensorSizeActivity;
 import com.example.dofcalculator.constant.ApplicationConstants;
 import com.example.dofcalculator.model.DepthOfFieldCalculator;
-import com.example.dofcalculator.model.SensorSize;
+import com.example.dofcalculator.util.SensorSizeEnum;
 
 import java.util.List;
 
@@ -24,11 +24,11 @@ import java.util.List;
 
 public class SensorSizeAdapter extends RecyclerView.Adapter<SensorSizeAdapter.ViewHolder> {
 
-    private List<SensorSize> mSensorSizeList;
+    private List<SensorSizeEnum> mSensorSizeList;
     private Context mContext; // 用于在View Holder里面启动activity等，是一个技巧。
 
     // adapter的构造函数
-    public SensorSizeAdapter(List<SensorSize> sensorSizeList) {
+    public SensorSizeAdapter(List<SensorSizeEnum> sensorSizeList) {
         mSensorSizeList = sensorSizeList;
     }
 
@@ -60,10 +60,10 @@ public class SensorSizeAdapter extends RecyclerView.Adapter<SensorSizeAdapter.Vi
                     Intent intent = new Intent(mContext, CustomCircleOfConfusionActivity.class);
                     mContext.startActivity(intent);
                 } else {
-                    SensorSize sensorSize = mSensorSizeList.get(position);
+//                    SensorSizeEnum sensorSize = mSensorSizeList.get(position);
                     // 返回MainActivity，使用更新之后的传感器更新主页面视图
                     Intent intent = new Intent(mContext, MainActivity.class);
-                    intent.putExtra(ApplicationConstants.SENSOR_SIZE_ITEM_NAME_TAG, sensorSize.getSensorSizeName());
+                    intent.putExtra(ApplicationConstants.SENSOR_SIZE_ITEM_NAME_TAG, SensorSizeEnum.getSensorSizeName(position - 1 ));
                     // 记录当前的弥散圆直径
                     // position - 1 因为第一项添加了一个手动输入弥散圆直径的选项，而DepthOfFieldCalculator记录的是没有第一项的所有数据，所以position - 1
                     DepthOfFieldCalculator.getInstance(mContext).setCircleOfConfusionIndex(position - 1);
@@ -84,13 +84,18 @@ public class SensorSizeAdapter extends RecyclerView.Adapter<SensorSizeAdapter.Vi
     // 中的子控件进行获取操作之后，对子控件内容进行填充
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        SensorSize sensorSize = mSensorSizeList.get(position);
-        holder.mSensorSizeItemTextView.setText(sensorSize.getSensorSizeName());
+
+        if (position <= 0) {
+            holder.mSensorSizeItemTextView.setText(mContext.getResources().
+                    getString(R.string.input_custom_circle_of_confusion_recycler_view_item));
+        } else {
+            holder.mSensorSizeItemTextView.setText(SensorSizeEnum.getSensorSizeName(position - 1));
+        }
     }
 
     @Override
     public int getItemCount() {
-        return mSensorSizeList.size();
+        return mSensorSizeList.size() + 1;
     }
 
 }

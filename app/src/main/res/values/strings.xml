@@ -28,6 +28,7 @@
     <string name="far_depth_of_field_text_view_label">后景深：</string>
     <string name="far_depth_of_field_text_view_number_init">0.287m</string>
 
+    <string name="input_custom_circle_of_confusion_recycler_view_item">手动输入容许弥散圆直径</string>
     <string name="input_custom_circle_of_confusion_text_view_label">请手动输入容许弥散圆直径(单位:mm)</string>
     <string name="custom_circle_of_confusion_button_label">确定</string>
     <string name="circle_of_confusion_calculate_method_label">说明：容许弥散圆直径=感光元件(或底片)对角线长度 / 1730</string>
